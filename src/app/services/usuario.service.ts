@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, pipe } from 'rxjs';
+import { delay, map, pipe } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,19 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   getUsers():any{
-     return this.http.get(`${ this.url }/users?per_page=6`)
+     return this.http.get(`${ this.url }/users?per_page=6&&delay=1000`)
         .pipe(
           map ( (resp: any)  => resp.data )
         );
   };
+
+  getUserById( id: string ):any{
+    return this.http.get(`${ this.url }/users/${ id }`)
+       .pipe(
+         map ( (resp: any)  => {
+          return resp.data;
+        } )
+       );
+ };
+
 }

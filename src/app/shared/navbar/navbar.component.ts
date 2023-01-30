@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   }
 
   irUsuario(id:string){
+    event?.preventDefault();
     if(!id){
       return;
     }

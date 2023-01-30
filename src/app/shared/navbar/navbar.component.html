@@ -14,8 +14,8 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input #txtInput 
-            (keyup.enter)="irUsuario( txtInput.value )"
+          <input #txtInput id="txtInput"
+            (keydown.enter)="irUsuario( txtInput.value )"
             class="form-control mr-sm-2" type="search" placeholder="ID Usuario" aria-label="Buscar">
           <button (click)="irUsuario( txtInput.value )" class="btn btn-outline-success" type="button">Buscar</button>
         </form>
